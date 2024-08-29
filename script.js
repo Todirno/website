@@ -12,7 +12,7 @@ function scrollFunction() {
 }
 
 function scrollToTop() {
-  const scrollDuration = 1000;
+  const scrollDuration = 1700;
   const scrollStep = -window.scrollY / (scrollDuration / 70);
   const scrollInterval = setInterval(function() {
     if (window.scrollY != 0) {
