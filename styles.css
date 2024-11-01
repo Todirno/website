@@ -2,12 +2,20 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Kode Mono", monospace;
-    background: linear-gradient(rgb(20, 20, 20) 0%, rgb(5, 2, 62) 74%, rgb(2, 13, 95) 100%);
     color: #fff;
     text-align: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+#backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
 }
 
 #content {
@@ -57,7 +65,7 @@ img {
     transition: opacity 0.1s;
     z-index: 999;
 }
-.faq {
+.shadow {
     width: auto;
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.595), rgba(0, 0, 0, 0) 100%);
     padding: 40px;
