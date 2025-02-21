@@ -1,22 +1,15 @@
-window.onscroll = function() {scrollFunction()};
-            
-function scrollFunction() {
-  var scrollButton = document.getElementById("scrollButtonBottom");
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollButton.style.display = "block";
-    scrollButton.style.opacity = "1";
-  } else {
-    scrollButton.style.opacity = "0";
-    setTimeout(function(){ scrollButton.style.display = "none"; }, 100);
-  }
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll(".fade-in");
 
-function scrollToTop() {
-  const scrollDuration = 1700;
-  const scrollStep = -window.scrollY / (scrollDuration / 70);
-  const scrollInterval = setInterval(function() {
-    if (window.scrollY != 0) {
-      window.scrollBy(0, scrollStep);
-    } else clearInterval(scrollInterval);
-  }, 15);
-}
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("show");
+                }, index * 200); // 200ms delay per element
+            }
+        });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach(el => observer.observe(el));
+});
