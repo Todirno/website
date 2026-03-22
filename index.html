@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icon.png">
     <title>Paweł Wlazły | Oficjalna Witryna</title>
-    <style>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <style>
         :root {
             --bg-base: #F2EFE9;      /* Papier czerpany */
             --text-dark: #1A1A1A;    /* Głęboka czerń */
@@ -146,6 +147,7 @@
             .email-section { flex-direction: column; gap: 15px; }
             .separator { display: none; }
             nav { padding: 30px; }
+            body, html { overflow: auto; } /* Na telefonie pozwalamy przewijać */
         }
     </style>
 </head>
@@ -174,9 +176,9 @@
     </main>
 
     <script>
-        // Funkcja do bezpiecznego renderowania maili
         function createSecureMail(id, user, domain) {
             var target = document.getElementById(id);
+            if (!target) return;
             var email = user + "@" + domain;
             var link = document.createElement('a');
             link.href = "mailto:" + email;
@@ -185,7 +187,7 @@
             target.appendChild(link);
         }
 
-        // Inicjalizacja obu adresów
+        // Inicjalizacja
         createSecureMail('mail-business', 'business', 'wlazly.com');
         createSecureMail('mail-personal', 'personal', 'wlazly.com');
     </script>
