@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <title>Paweł Wlazły | Oficjalna Witryna</title>
+    <style>
+        /* Import prestiżowych czcionek (Darmowe: Open Font License) */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --bg-base: #F2EFE9;      /* Papier czerpany */
+            --text-dark: #1A1A1A;    /* Głęboka czerń */
+            --accent-gold: #7D6B5D;  /* Stonowany mosiądz */
+            --border-color: #D1C7BC; /* Kolor linii pomocniczych */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: var(--bg-base);
+            color: var(--text-dark);
+            font-family: 'Libre Baskerville', serif;
+            overflow: hidden;
+        }
+
+        /* Dekoracyjna ramka zewnętrzna */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            border: 1px solid var(--border-color);
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* --- NAWIGACJA --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+            position: fixed;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-herb {
+            height: 40px;
+            filter: grayscale(1) contrast(1.1);
+        }
+
+        .nav-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* --- TREŚĆ GŁÓWNA --- */
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .main-herb-container {
+            margin-bottom: 40px;
+        }
+
+        .main-herb {
+            height: 140px;
+            opacity: 0.9;
+        }
+
+        .main-name {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin: 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+        }
+
+        .sub-name {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+        }
+
+        /* Kontener na dwa maile */
+        .email-section {
+            margin-top: 60px;
+            display: flex;
+            gap: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            align-items: center;
+        }
+
+        .email-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.3s ease, letter-spacing 0.3s ease;
+        }
+
+        .email-link:hover {
+            opacity: 1;
+            letter-spacing: 4px;
+        }
+
+        .separator {
+            width: 1px;
+            height: 15px;
+            background-color: var(--border-color);
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .main-name { font-size: 1.8rem; letter-spacing: 5px; padding: 15px 20px; }
+            .main-herb { height: 100px; }
+            .email-section { flex-direction: column; gap: 15px; }
+            .separator { display: none; }
+            nav { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <img src="herb.png" alt="Herb" class="nav-herb">
+            <div class="nav-title">Paweł Wlazły</div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="main-herb-container">
+            <img src="herb.png" alt="Herb Rodzinny" class="main-herb">
+        </div>
+        
+        <h1 class="main-name">Paweł Wlazły</h1>
+        <div class="sub-name">Private & Business</div>
+
+        <div class="email-section">
+            <span id="mail-business"></span>
+            <div class="separator"></div>
+            <span id="mail-personal"></span>
+        </div>
+    </main>
+
+    <script>
+        // Funkcja do bezpiecznego renderowania maili
+        function createSecureMail(id, user, domain) {
+            var target = document.getElementById(id);
+            var email = user + "@" + domain;
+            var link = document.createElement('a');
+            link.href = "mailto:" + email;
+            link.className = "email-link";
+            link.innerText = email.toUpperCase();
+            target.appendChild(link);
+        }
+
+        // Inicjalizacja obu adresów
+        createSecureMail('mail-business', 'business', 'wlazly.com');
+        createSecureMail('mail-personal', 'personal', 'wlazly.com');
+    </script>
+
+</body>
+</html>
