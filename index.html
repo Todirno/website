@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icon.png">
-    <title>Paweł Wlazły | Oficjalna Witryna</title>
+    <title>crm. Paweł Wlazły</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +12,10 @@
 
     <style>
         :root {
-            --bg-base: #F2EFE9;      /* Papier czerpany */
-            --text-dark: #1A1A1A;    /* Głęboka czerń */
-            --accent-gold: #7D6B5D;  /* Stonowany mosiądz */
-            --border-color: #D1C7BC; /* Kolor linii pomocniczych */
+            --bg-base: #F2EFE9;     
+            --text-dark: #1A1A1A;   
+            --accent-gold: #7D6B5D; 
+            --border-color: #D1C7BC;
         }
 
         body, html {
@@ -28,7 +28,6 @@
             overflow: hidden;
         }
 
-        /* Dekoracyjna ramka zewnętrzna */
         body::before {
             content: "";
             position: fixed;
@@ -41,7 +40,6 @@
             z-index: 50;
         }
 
-        /* --- NAWIGACJA --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -71,7 +69,14 @@
             text-transform: uppercase;
         }
 
-        /* --- TREŚĆ GŁÓWNA --- */
+        .nav-title span {
+            text-transform: lowercase;
+            font-variant: normal;
+            font-size: 0.85rem;
+            margin-right: 6px;
+            color: var(--accent-gold);
+        }
+
         main {
             display: flex;
             flex-direction: column;
@@ -82,12 +87,35 @@
         }
 
         .main-herb-container {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .main-herb {
             height: 140px;
             opacity: 0.9;
+        }
+
+        .main-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-title-line {
+            width: 40px;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .main-title-text {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 8px;
+            color: var(--accent-gold);
+            padding-left: 8px;
         }
 
         .main-name {
@@ -106,12 +134,12 @@
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
             font-size: 1.1rem;
-            margin-top: 15px;
+            margin-top: 20px;
             color: var(--accent-gold);
             letter-spacing: 2px;
         }
 
-        /* Kontener na dwa maile */
+
         .email-section {
             margin-top: 60px;
             display: flex;
@@ -143,11 +171,13 @@
         /* Responsywność */
         @media (max-width: 768px) {
             .main-name { font-size: 1.8rem; letter-spacing: 5px; padding: 15px 20px; }
+            .main-title-text { font-size: 0.8rem; letter-spacing: 4px; padding-left: 4px; }
+            .main-title-line { width: 20px; }
             .main-herb { height: 100px; }
             .email-section { flex-direction: column; gap: 15px; }
             .separator { display: none; }
             nav { padding: 30px; }
-            body, html { overflow: auto; } /* Na telefonie pozwalamy przewijać */
+            body, html { overflow: auto; }
         }
     </style>
 </head>
@@ -156,7 +186,7 @@
     <nav>
         <div class="nav-left">
             <img src="herb.png" alt="Herb" class="nav-herb">
-            <div class="nav-title">Paweł Wlazły</div>
+            <div class="nav-title"><span>crm.</span>Paweł Wlazły</div>
         </div>
     </nav>
 
@@ -165,6 +195,12 @@
             <img src="herb.png" alt="Herb Rodzinny" class="main-herb">
         </div>
         
+        <div class="main-title-container">
+            <div class="main-title-line"></div>
+            <div class="main-title-text">Ceremoniarz</div>
+            <div class="main-title-line"></div>
+        </div>
+
         <h1 class="main-name">Paweł Wlazły</h1>
         <div class="sub-name">Private & Business</div>
 
@@ -187,7 +223,6 @@
             target.appendChild(link);
         }
 
-        // Inicjalizacja
         createSecureMail('mail-business', 'business', 'wlazly.com');
         createSecureMail('mail-personal', 'personal', 'wlazly.com');
     </script>
