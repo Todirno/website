@@ -84,6 +84,8 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            padding: 0 40px;
+            box-sizing: border-box;
         }
 
         .main-herb-container {
@@ -133,12 +135,13 @@
         .sub-name {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
-            font-size: 1.1rem;
-            margin-top: 20px;
+            font-size: 1rem;
+            margin-top: 25px;
             color: var(--accent-gold);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            max-width: 800px;
+            line-height: 1.6;
         }
-
 
         .email-section {
             margin-top: 60px;
@@ -162,20 +165,14 @@
             letter-spacing: 4px;
         }
 
-        .separator {
-            width: 1px;
-            height: 15px;
-            background-color: var(--border-color);
-        }
-
         /* Responsywność */
         @media (max-width: 768px) {
             .main-name { font-size: 1.8rem; letter-spacing: 5px; padding: 15px 20px; }
             .main-title-text { font-size: 0.8rem; letter-spacing: 4px; padding-left: 4px; }
             .main-title-line { width: 20px; }
             .main-herb { height: 100px; }
-            .email-section { flex-direction: column; gap: 15px; }
-            .separator { display: none; }
+            .sub-name { font-size: 0.85rem; margin-top: 20px; padding: 0 10px; }
+            .email-section { flex-direction: column; gap: 15px; margin-top: 40px; }
             nav { padding: 30px; }
             body, html { overflow: auto; }
         }
@@ -202,11 +199,9 @@
         </div>
 
         <h1 class="main-name">Paweł Wlazły</h1>
-        <div class="sub-name">Private & Business</div>
+        <div class="sub-name">Sobrii estote, vigilate. Adversarius vester Diabolus tamquam leo rugiens circuit quaerens quem devoret. Cui resistite fortes fide</div>
 
         <div class="email-section">
-            <span id="mail-business"></span>
-            <div class="separator"></div>
             <span id="mail-personal"></span>
         </div>
     </main>
@@ -223,7 +218,6 @@
             target.appendChild(link);
         }
 
-        createSecureMail('mail-business', 'business', 'wlazly.com');
         createSecureMail('mail-personal', 'personal', 'wlazly.com');
     </script>
 
